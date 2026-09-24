@@ -40,7 +40,7 @@
 
 ## Part F Questions
 1. Which action did the Part B error name?
-   ec2:RunInstances — the console denied it because no identity-based policy attached to your user allowed that action. 
+   ec2:RunInstances — the console denied it because no identity-based policy attached to your user allowed that action.
 2. In your policy, which condition limits `ec2:RunInstances`?
    The Condition block in the RunOnlyT3MicroInstances statement: 
 
@@ -49,12 +49,15 @@
 This restricts the Allow on ec2:RunInstances so it only applies when the requested instance type is exactly t3.micro — any other instance type (like t3.small) falls outside this statement's grant.
 
 3. After you attached `ec2:*` on `*`, why was `t3.small` still denied? Name the boundary statement.
+   
    Even with ec2:* on * attached as an identity-based policy, the permissions boundary (umak-lab-boundary) caps what your identity-based policies can ever grant — a boundary acts as an upper limit, not an addition. The relevant boundary statement is DenyAnyInstanceTypeButT3Micro, which explicitly denies RunInstances for any instance type other than t3.micro, regardless of what your own policy allows. Since a boundary's explicit Deny always wins over any identity-based Allow, t3.small stayed blocked. 
 
 4. Why is `ec2:*` on `*` a poor policy even with a boundary?
+   
    Because it grants far more access than the task requires — full read/write/delete control over every EC2 action and resource in the account (terminating others' instances, modifying any security group, changing network settings, etc.) — violating the principle of least privilege. A boundary limits the worst-case blast radius in specific ways (like instance type here), but it doesn't cover every possible action, so an overly broad policy still creates unnecessary risk anywhere the boundary doesn't explicitly restrict it. 
 
 5. In two sentences: what does the boundary control that your policy cannot?
+   
    A permissions boundary sets the maximum permissions an identity can ever have, acting as a hard ceiling that identity-based policies (even ones as broad as ec2:* on *) cannot exceed. Your own policy can only grant permissions within that ceiling — it has no ability to expand access beyond what the boundary allows, no matter how permissive you write it. 
 
 

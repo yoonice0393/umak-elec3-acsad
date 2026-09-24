@@ -1,7 +1,7 @@
 # Lab 1 Submission
 
 ## Part B
-**Error Action Name:** You are not authorized to perform this operation. User: arn:aws:iam::548387266019:user/acsad-g07 is not authorized to perform: ec2:CreateSecurityGroup on resource: arn:aws:ec2:ap-southeast-1:548387266019:security-group/* because no identity-based policy allows the ec2:CreateSecurityGroup action. Encoded authorization failure message: 6hgnuYqJ5CQayXBsXknkI67agacB6ZgQ-KgIcGFsxq0PNyFf36_WAYUUAyN_6QuC9pGyVFjpCMnOMNeL777xQafYCFEOeeQeXouFBFcBPafVyVjpBwcfY_Ru8ZiNtpyMy38KZpnqBm6NBD5PO0Cypv1G2YZoFfgugfJx3vHKqkk6CUWuzy25DUuCdIYiVsAOFNFfqefJXb8lKeXNkWfJnFtj22jjFOJHFhir8FTu2zYxTE1uOI5NRMwy82gWZ35F7jdrsLmQjLx1s_3nUawgzfMPQg9jHKilsYktTz9MC1V72Q2AETrVaJPCXr80vvxr00X7N8HP64jVzUaqBEtgSVabfCaovE0-UBn7jQMr7ss-FBozvper96mVEXWzNWuXXTay8N1eYP9J7gfd1CzeQZCIWgHeWmZlVkE1NhzKimVIb-Wot95SVULiFh8Us4MxqwAlIIipdUc62UGOQ0W9PxqeuAFoqKIQcFjIv10a-u_qBr62efpnt1JDYOSqostB9JFaSehx0F0iO_w23L2n_CFTsWwHiEpNBDUIcNsk 
+**Error Action Name:** 
 
 **Screenshot (Part B launch denial with username visible):**
 ![Part B Error](part-b-error.png)

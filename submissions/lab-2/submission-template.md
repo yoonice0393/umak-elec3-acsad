@@ -22,12 +22,17 @@
 
 ## Questions
 1. Why did the group stop at 2 instances?
-     The group stopped at 2 instances because the maximum number of instances was set to 2. Once it reached that limit, Auto Scaling could no longer add another instance.
+
+   The group stopped at 2 instances because the maximum number of instances was set to 2. Once it reached that limit, Auto Scaling could no longer add another instance.
 2. Why did terminating an instance by hand not remove the cost?
-     Terminating an instance manually did not completely remove the cost because the Auto Scaling Group automatically created a replacement instance to maintain the required number of instances. The new instance can still use AWS resources and generate costs.
+
+   Terminating an instance manually did not completely remove the cost because the Auto Scaling Group automatically created a replacement instance to maintain the required number of instances. The new instance can still use AWS resources and generate costs.
 3. Why is the target value set to your assigned value (e.g., 30-85 percent) instead of 99 percent?
-     The target value is set to the assigned percentage so the system can respond before the instance becomes overloaded. If it was set to 99%, the CPU would have to become almost fully utilized before Auto Scaling would take action.
+
+   The target value is set to the assigned percentage so the system can respond before the instance becomes overloaded. If it was set to 99%, the CPU would have to become almost fully utilized before Auto Scaling would take action.
 4. What did the automatic cutoff protect us from?
-     The automatic cutoff protected us from having too many instances running at the same time. It also helped prevent unnecessary AWS usage and unexpected costs if the system kept trying to scale up.
+
+   The automatic cutoff protected us from having too many instances running at the same time. It also helped prevent unnecessary AWS usage and unexpected costs if the system kept trying to scale up.
 5. What changes when a load balancer sits in front of the group?
-     When a load balancer is placed in front of the group, it distributes the incoming traffic between the available instances. This helps prevent one instance from receiving all the traffic and allows the workload to be shared among the instances.
+
+   When a load balancer is placed in front of the group, it distributes the incoming traffic between the available instances. This helps prevent one instance from receiving all the traffic and allows the workload to be shared among the instances.
